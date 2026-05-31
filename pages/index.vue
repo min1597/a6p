@@ -108,7 +108,7 @@ useSeoMeta({
       <section class="hero-panel">
         <div class="hero-copy">
           <p class="eyebrow">유심 보안 자가진단</p>
-          <h1>내 유심, 지금 상태로 괜찮을까?</h1>
+          <h1>내 유심, 지금<br />상태로 괜찮을까?</h1>
           <p class="hero-body">
             몇 가지 질문에 답하면 내가 놓치고 있는 유심 보안 습관이 있는지 빠르게 확인할 수
             있습니다.

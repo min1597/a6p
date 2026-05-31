@@ -176,9 +176,10 @@ button {
 .hero-copy h1 {
   margin: 0;
   font-size: clamp(2.35rem, 5vw, 4.4rem);
-  line-height: 0.98;
+  line-height: 1.02;
   letter-spacing: -0.04em;
-  max-width: 10ch;
+  max-width: 12.5ch;
+  text-wrap: balance;
 }
 
 .hero-body,
@@ -655,5 +656,6 @@ button {
   .hero-copy h1 {
     font-size: 2.45rem;
     max-width: none;
+    text-wrap: pretty;
   }
 }
