@@ -107,7 +107,7 @@ useSeoMeta({
   <div class="page-shell">
     <header class="topbar">
       <div class="brand-lockup">
-        <span class="brand-kicker">SIM SECURITY CHECK</span>
+        <img class="brand-mascot" src="/chito-curious.png" alt="치토 궁금 캐릭터" />
         <strong>내 유심은 안전할까?</strong>
       </div>
       <nav class="topnav" aria-label="주요 메뉴">

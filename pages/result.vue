@@ -22,8 +22,13 @@ if (import.meta.client && !isComplete.value) {
 const totalScore = computed(() => getTotalScore(answers.value))
 const level = computed(() => getLevel(totalScore.value))
 const resultTone = computed(() => levelMap[level.value])
-const weakestCategories = computed(() => getWeakestCategories(answers.value))
 const recommendedGuides = computed(() => getRecommendedGuides(answers.value))
+const resultMascotSrc = computed(() =>
+  level.value === 'safe' ? '/chito-best.png' : '/chito-surprised.png'
+)
+const resultMascotAlt = computed(() =>
+  level.value === 'safe' ? '치토 최고 캐릭터' : '치토 놀람 캐릭터'
+)
 
 const externalServices = [
   {
@@ -54,7 +59,7 @@ useSeoMeta({
   <div class="page-shell">
     <header class="topbar">
       <div class="brand-lockup">
-        <span class="brand-chip brand-chip-solid">SIM SECURITY CHECK</span>
+        <img class="brand-mascot" :src="resultMascotSrc" :alt="resultMascotAlt" />
         <strong>내 유심은 안전할까?</strong>
       </div>
       <nav class="topnav" aria-label="주요 메뉴">
@@ -85,19 +90,14 @@ useSeoMeta({
                 <span>총점</span>
               </div>
               <div>
-                <strong>{{ weakestCategories.length }}개</strong>
-                <span>우선 점검 항목</span>
+                <strong>{{ recommendedGuides.length }}개</strong>
+                <span>추천 가이드</span>
               </div>
               <div>
                 <strong>{{ resultTone.label }}</strong>
                 <span>현재 단계</span>
               </div>
             </div>
-            <ul class="summary-list">
-              <li v-for="category in weakestCategories" :key="category">
-                우선 확인: {{ category }}
-              </li>
-            </ul>
           </div>
         </div>
       </section>

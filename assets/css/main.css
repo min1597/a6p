@@ -115,6 +115,13 @@ button {
   white-space: nowrap;
 }
 
+.brand-mascot {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
 .brand-chip-solid {
   color: #fff;
   background: linear-gradient(180deg, #2f67ec 0%, #2257d8 100%);
@@ -732,12 +739,12 @@ button {
   }
 
   .brand-lockup strong {
-    display: none;
+    font-size: 0.98rem;
   }
 
-  .brand-kicker {
-    font-size: 0.95rem;
-    letter-spacing: 0.02em;
+  .brand-mascot {
+    width: 42px;
+    height: 42px;
   }
 
   .topnav {
