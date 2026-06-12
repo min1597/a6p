@@ -7,26 +7,26 @@ const answers = storedAnswers.value
 const heroStats = [
   { label: '걸리는 시간', value: '2분' },
   { label: '체크 항목', value: `${questions.length}개` },
-  { label: '결과 방식', value: '안전도 3단계' }
+  { label: '가이드 흐름', value: '문제-점검-실천' }
 ]
 
-const trustItems = ['PIN 잠금', '통신사 앱', '명의도용 확인', '업데이트', '잠금화면']
+const focusItems = ['통신사 계정 보호', '명의도용 여부 확인', '보안 업데이트 점검', '잠금화면 설정', '민감한 화면 정리']
 
 const awarenessCards = [
   {
-    eyebrow: '생각보다 자주 놓치는 것',
-    title: '유심 보안은 전문가용 설정이 아니라, 평소 습관에 더 가깝습니다.',
-    body: 'PIN 잠금, 통신사 계정 정리, 잠금화면 설정처럼 바로 손댈 수 있는 것들이 많아요.'
+    eyebrow: '문제 정의',
+    title: '유심 정보 유출은 통신 해킹 자체보다도, 그 뒤에 이어지는 2차 피해가 더 큽니다.',
+    body: '명의도용, 계정 접근, 본인확인 악용처럼 생활 속 피해로 이어질 수 있어서 미리 점검하는 습관이 중요합니다.'
   },
   {
-    eyebrow: '이 테스트의 역할',
-    title: '어디가 비어 있는지 먼저 찾고, 꼭 필요한 것만 추려서 보여줍니다.',
-    body: '너무 많은 보안 정보를 한꺼번에 주기보다, 지금 바로 필요한 조치부터 확인하게 합니다.'
+    eyebrow: '설문조사 및 방향성',
+    title: '어려운 기술 설명보다, 지금 놓치고 있는 행동 습관을 먼저 확인하도록 구성했습니다.',
+    body: '학생 사용자가 바로 답할 수 있는 질문으로 보안 인식 수준과 실천 가능성을 함께 점검합니다.'
   },
   {
-    eyebrow: '모바일에서 바로',
-    title: '스크롤하면서 짧게 답하고, 결과를 바로 보는 흐름으로 구성했습니다.',
-    body: '휴대폰으로 보는 상황을 기준으로 문장 길이와 버튼 크기를 정리했습니다.'
+    eyebrow: '목표 및 해결책 개요',
+    title: '진단 결과 뒤에는 바로 적용할 수 있는 보안 가이드와 확인 링크를 이어서 제공합니다.',
+    body: '특히 명의도용방지시스템, 통신사 계정 보호, 업데이트, 잠금화면처럼 즉시 실천 가능한 항목에 집중했습니다.'
   }
 ]
 
@@ -44,16 +44,10 @@ const qualitativeOutcomes = [
   '실생활 적용 가능성: 팀원 및 주변 사람들이 실제로 적용 가능한 보안 습관 형성'
 ]
 
-const introPoints = [
-  '보안 지식이 많지 않아도 답할 수 있는 질문만 담았습니다.',
-  '결과는 안전, 경고, 위험 세 단계로 단순하게 보여줍니다.',
-  '진단이 끝나면 바로 실천할 수 있는 가이드를 이어서 확인할 수 있습니다.'
-]
-
 const libraryItems = [
   {
     title: '유심 보안 한눈에 보기',
-    text: 'PIN 잠금, 통신사 계정 보호, 피싱 회피, 분실 대응 4가지만 기억해도 기본 방어선이 생깁니다.'
+    text: '통신사 계정 보호, 명의도용 확인, 업데이트, 잠금화면 설정처럼 지금 바로 적용할 수 있는 것부터 챙기세요.'
   },
   {
     title: '분실 직후 우선순위',
@@ -61,11 +55,30 @@ const libraryItems = [
   },
   {
     title: '잠금화면과 기본 설정',
-    text: '휴대폰 잠금, 유심 PIN, 업데이트처럼 바로 적용할 수 있는 기본 설정부터 챙기는 것이 좋습니다.'
+    text: '휴대폰 잠금, 업데이트, 알림 미리보기 차단처럼 작은 기본 설정만으로도 노출 위험을 줄일 수 있습니다.'
   },
   {
     title: '정기 점검 주기',
     text: '3개월에 한 번 정도 회선 조회, 비밀번호 점검, 업데이트 확인만 해도 위험을 낮출 수 있습니다.'
+  }
+]
+
+const externalServices = [
+  {
+    title: '엠세이퍼 명의도용방지서비스',
+    description: '내 명의로 개통된 휴대폰 회선이 있는지 확인해볼 수 있는 대표적인 명의도용 점검 서비스입니다.',
+    href: 'https://www.msafer.or.kr',
+    label: '엠세이퍼 바로가기',
+    accent: '#1d63d8',
+    tint: '#eef5ff'
+  },
+  {
+    title: '털린 내 정보 찾기 서비스',
+    description: '아이디, 이메일, 비밀번호가 다크웹 등에 유출되었는지 조회해볼 수 있는 서비스입니다.',
+    href: 'https://kidc.eprivacy.go.kr/',
+    label: '유출 여부 조회하기',
+    accent: '#0f8a68',
+    tint: '#edf9f5'
   }
 ]
 
@@ -94,7 +107,7 @@ useSeoMeta({
   <div class="page-shell">
     <header class="topbar">
       <div class="brand-lockup">
-        <span class="brand-chip">SIM SECURITY CHECK</span>
+        <span class="brand-kicker">SIM SECURITY CHECK</span>
         <strong>내 유심은 안전할까?</strong>
       </div>
       <nav class="topnav" aria-label="주요 메뉴">
@@ -117,23 +130,19 @@ useSeoMeta({
             <a class="primary-button" href="#test">테스트 시작하기</a>
             <a class="ghost-button" href="#guide">가이드 먼저 보기</a>
           </div>
-
-          <div class="trust-strip" aria-label="주요 점검 항목">
-            <span v-for="item in trustItems" :key="item">{{ item }}</span>
-          </div>
         </div>
 
         <div class="hero-summary">
           <div class="summary-panel">
-            <p class="summary-label">이 테스트에서 보는 것</p>
+            <p class="summary-label">핵심 점검 항목</p>
             <div class="summary-stats">
               <div v-for="stat in heroStats" :key="stat.label">
                 <strong>{{ stat.value }}</strong>
                 <span>{{ stat.label }}</span>
               </div>
             </div>
-            <ul class="summary-list">
-              <li v-for="point in introPoints" :key="point">{{ point }}</li>
+            <ul class="summary-focus-list">
+              <li v-for="item in focusItems" :key="item">{{ item }}</li>
             </ul>
           </div>
         </div>
@@ -141,8 +150,8 @@ useSeoMeta({
 
       <section id="purpose" class="content-section">
         <div class="section-heading">
-          <p class="eyebrow">프로젝트 취지</p>
-          <h2>거창한 보안 서비스보다, 먼저 확인할 생활 습관을 알려주는 페이지를 목표로 했습니다.</h2>
+          <p class="eyebrow">1 문제 정의</p>
+          <h2>거창한 제도 설명보다, 먼저 생활 속에서 바로 점검할 수 있는 유심 보안 가이드를 목표로 했습니다.</h2>
           <p class="purpose-quote">
             I think our website can be a starting point to make students pay attention to
             protecting their personal information.
@@ -159,7 +168,7 @@ useSeoMeta({
 
       <section class="content-section">
         <div class="section-heading">
-          <p class="eyebrow">기대 성과</p>
+          <p class="eyebrow">2 기대 효과 및 기대 변화</p>
           <h2>이 프로젝트를 통해 기대하는 변화</h2>
         </div>
 
@@ -182,9 +191,13 @@ useSeoMeta({
 
       <section id="test" class="content-section">
         <div class="section-heading compact">
-          <p class="eyebrow">보안 점수 테스트</p>
-          <h2>가장 가까운 답을 눌러 주세요.</h2>
+          <p class="eyebrow">3 설문조사 진행 및 방향성 도출</p>
+          <h2>가장 가까운 답을 눌러 현재 보안 습관을 점검해 보세요.</h2>
           <p>{{ answeredCount }} / {{ questions.length }} 문항 완료</p>
+        </div>
+
+        <div class="progress-meter" aria-hidden="true">
+          <div class="progress-meter-fill" :style="{ width: `${(answeredCount / questions.length) * 100}%` }"></div>
         </div>
 
         <div class="question-stack">
@@ -212,8 +225,8 @@ useSeoMeta({
         </div>
 
         <div class="test-actions">
-          <p class="test-helper" v-if="!isComplete">
-            모든 문항에 답하면 결과 페이지에서 보안 수준과 맞춤 가이드를 확인할 수 있습니다.
+          <p class="test-helper">
+            {{ isComplete ? '모든 문항 응답이 완료되었습니다. 결과 페이지로 이동해 맞춤 가이드를 확인해 보세요.' : '모든 문항에 답하면 결과 페이지에서 보안 수준과 맞춤 가이드를 확인할 수 있습니다.' }}
           </p>
           <button
             type="button"
@@ -228,7 +241,7 @@ useSeoMeta({
 
       <section id="guide" class="content-section">
         <div class="section-heading">
-          <p class="eyebrow">실천 가이드</p>
+          <p class="eyebrow">4 가이드라인 웹사이트 소개</p>
           <h2>결과를 보고 바로 해볼 수 있는 것들만 먼저 모았습니다.</h2>
         </div>
         <div class="guide-grid">
@@ -240,11 +253,36 @@ useSeoMeta({
             </ol>
           </article>
         </div>
+
+        <div class="service-box">
+          <div class="service-box-head">
+            <p class="eyebrow">이런 서비스도 있어요!</p>
+            <h3>바로 확인 가능한 외부 서비스</h3>
+          </div>
+          <div class="service-grid">
+            <article v-for="service in externalServices" :key="service.href" class="service-card">
+              <span class="service-badge" :style="{ color: service.accent, backgroundColor: service.tint }">
+                바로 확인 가능
+              </span>
+              <strong>{{ service.title }}</strong>
+              <p>{{ service.description }}</p>
+              <a
+                class="guide-link service-link"
+                :style="{ color: service.accent, borderColor: service.accent, backgroundColor: service.tint }"
+                :href="service.href"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {{ service.label }}
+              </a>
+            </article>
+          </div>
+        </div>
       </section>
 
       <section id="library" class="content-section">
         <div class="section-heading">
-          <p class="eyebrow">자료실</p>
+          <p class="eyebrow">5 해결방안의 특징 및 차별성</p>
           <h2>짧게 훑어보는 유심 보안 요약</h2>
         </div>
 
@@ -264,7 +302,7 @@ useSeoMeta({
       </div>
       <div>
         <strong>제작자 정보</strong>
-        <p>소속 팀 또는 제작자 이름, 문의 채널은 배포 환경에 맞게 추가해 사용할 수 있습니다.</p>
+        <p>아주대학교 아주상상프로젝트 아육대</p>
       </div>
       <div>
         <strong>정책 링크</strong>

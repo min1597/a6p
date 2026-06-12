@@ -20,22 +20,13 @@ export type GuideCard = {
   title: string
   summary: string
   steps: string[]
+  linkHref?: string
+  linkLabel?: string
 }
 
 export type AnswerMap = Record<string, number | null>
 
 const questions: SecurityQuestion[] = [
-  {
-    id: 'pin',
-    title: '휴대폰을 잃어버려도 유심을 바로 못 쓰게 막아두셨나요?',
-    description: '유심 PIN 잠금은 분실 뒤 다른 폰에 유심을 꽂아 쓰는 일을 막아주는 기본 설정입니다.',
-    category: 'pin',
-    options: [
-      { label: '네, 설정해 두었습니다', score: 0, note: '좋아요.' },
-      { label: '잘 모르겠습니다', score: 2, note: '설정 여부만 확인해도 바로 보완할 수 있습니다.' },
-      { label: '아니요, 아직 안했습니다', score: 4, note: '분실 상황에서 위험해질 수 있어요.' }
-    ]
-  },
   {
     id: 'carrier',
     title: '통신사 앱 비밀번호는 다른 사이트랑 겹치지 않고, 잠금도 충분한가요?',
@@ -50,7 +41,7 @@ const questions: SecurityQuestion[] = [
   {
     id: 'msafer',
     title: '내 명의가 떠돌아 다니고 있는지 확인해본적이 있나요?',
-    description: '엠세이퍼 같은 서비스로 내 이름으로 개통된 번호를 확인할 수 있습니다.',
+    description: '엠세이퍼 같은 명의도용방지시스템으로 내 이름으로 개통된 번호를 바로 확인할 수 있습니다.',
     category: 'msafer',
     options: [
       { label: '네, 최근에도 확인해 봤습니다', score: 0, note: '좋아요, 이상 징후를 빨리 알아차릴 수 있겠네요.' },
@@ -95,17 +86,6 @@ const questions: SecurityQuestion[] = [
 
 const guideCards: GuideCard[] = [
   {
-    id: 'pin',
-    category: 'pin',
-    title: '유심 PIN 잠금 켜기',
-    summary: '복잡한 것보다 먼저 챙길 만한 기본 설정입니다. 분실 뒤 유심 재사용을 바로 어렵게 만듭니다.',
-    steps: [
-      '설정 앱에서 보안 또는 모바일 네트워크 메뉴로 들어갑니다.',
-      'SIM 카드 잠금 또는 유심 잠금 메뉴를 찾아 PIN을 활성화합니다.',
-      '기본 PIN을 바꿨다면 새 번호를 안전한 곳에 보관합니다.'
-    ]
-  },
-  {
     id: 'carrier',
     category: 'carrier',
     title: '통신사 계정 보호 강화',
@@ -125,7 +105,9 @@ const guideCards: GuideCard[] = [
       '엠세이퍼 또는 통신사 본인확인 메뉴에서 회선 현황을 조회합니다.',
       '모르는 회선이나 서비스가 있으면 즉시 통신사 고객센터에 문의합니다.',
       '분기마다 한 번 확인하는 일정을 만들어 둡니다.'
-    ]
+    ],
+    linkHref: 'https://www.msafer.or.kr',
+    linkLabel: '엠세이퍼 바로가기'
   },
   {
     id: 'update',
@@ -176,7 +158,7 @@ const levelMap: Record<Level, { label: string; headline: string; description: st
   danger: {
     label: '위험',
     headline: '지금 상태라면 실제 사고에 조금 취약할 수 있어요.',
-    description: '유심 PIN, 통신사 계정 보호, 잠금화면 설정부터 먼저 손보는 것을 추천합니다.'
+    description: '통신사 계정 보호, 명의도용 점검, 잠금화면 설정부터 먼저 손보는 것을 추천합니다.'
   }
 }
 

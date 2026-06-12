@@ -25,6 +25,25 @@ const resultTone = computed(() => levelMap[level.value])
 const weakestCategories = computed(() => getWeakestCategories(answers.value))
 const recommendedGuides = computed(() => getRecommendedGuides(answers.value))
 
+const externalServices = [
+  {
+    title: '엠세이퍼 명의도용방지서비스',
+    description: '내 명의로 개통된 휴대폰 회선이 있는지 확인해볼 수 있는 대표적인 명의도용 점검 서비스입니다.',
+    href: 'https://www.msafer.or.kr',
+    label: '엠세이퍼 바로가기',
+    accent: '#1d63d8',
+    tint: '#eef5ff'
+  },
+  {
+    title: '털린 내 정보 찾기 서비스',
+    description: '아이디, 이메일, 비밀번호가 다크웹 등에 유출되었는지 조회해볼 수 있는 서비스입니다.',
+    href: 'https://kidc.eprivacy.go.kr/',
+    label: '유출 여부 조회하기',
+    accent: '#0f8a68',
+    tint: '#edf9f5'
+  }
+]
+
 useSeoMeta({
   title: '테스트 결과 | 내 유심은 안전할까?',
   description: '유심 보안 점수 테스트 결과와 맞춤 보안 가이드'
@@ -104,6 +123,31 @@ useSeoMeta({
               <li v-for="step in guide.steps" :key="step">{{ step }}</li>
             </ol>
           </article>
+        </div>
+
+        <div class="service-box">
+          <div class="service-box-head">
+            <p class="eyebrow">이런 서비스도 있어요!</p>
+            <h3>추가로 점검해볼 수 있는 외부 서비스</h3>
+          </div>
+          <div class="service-grid">
+            <article v-for="service in externalServices" :key="service.href" class="service-card">
+              <span class="service-badge" :style="{ color: service.accent, backgroundColor: service.tint }">
+                바로 확인 가능
+              </span>
+              <strong>{{ service.title }}</strong>
+              <p>{{ service.description }}</p>
+              <a
+                class="guide-link service-link"
+                :style="{ color: service.accent, borderColor: service.accent, backgroundColor: service.tint }"
+                :href="service.href"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {{ service.label }}
+              </a>
+            </article>
+          </div>
         </div>
       </section>
     </main>
